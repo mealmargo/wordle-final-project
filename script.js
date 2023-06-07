@@ -23,7 +23,7 @@
 
     let txts = [24]
     for (let i = 0; i < 24; i++) {
-        txts[i] = document.getElementById(i + 1) //Берем тексты с html по очереди
+        txts[i] = document.getElementById(i + 1) //Берем тексты с html по очереди, это нам позволяет вводить букву с первого кубика
         
     }
 
@@ -37,8 +37,7 @@
 
 
     let currentWord = "";
-    let currentLine = 0;
-
+    
     function keydown(e){
         if(e.key == "Enter")
         {
@@ -46,14 +45,14 @@
         }
         if(e.key == "Backspace") 
         {
-            let letter = currentWord.split("") //cur = "0=р 1=е 2=к"
+            let letter = currentWord.split("") //каждую букву берем как отдельный индекс
 
             letter.pop()
             currentWord = ""
             for (let i = 0; i < letter.length; i++) {
                 currentWord = currentWord + letter[i]
                 
-            }
+            } // по буквам добавляем слово
 
             for (let i = txts.length - 1; i >= 0; i--) {
                 if(txts[i].innerHTML != "")
@@ -62,16 +61,14 @@
                     break
                 }                
 
-            }
+            } //цикл чтобы буквы удалялись с конца
 
-            //i = 0;   currentWord = ""  =>  currentWord + letter[i]  => currentword = "р"
-            //i = 1;   currentWord = ""  =>  currentWord + letter[i]  => currentword = "ре"
-            //i = 2;   
+           
             return
         }
         if(currentWord.split("").length == 4)
         {
-            return
+            return //чтобы слово не было больше 4 букв
         }
         if(e.key == "q") currentWord += "й"
         else if(e.key == "w") currentWord += "ц"
@@ -106,7 +103,7 @@
         else if(e.key == ",") currentWord += "б"
         else if(e.key == ".") currentWord += "ю"
         else if(e.key == "`") currentWord += "ё"
-        else return
+        else return // если нажать на другую кнопку- ничего не выйдет
 
         for (let i = 0; i < 24; i++) { //р е к
             if(txts[i].innerHTML == "")
@@ -114,7 +111,7 @@
                 txts[i].innerHTML = currentWord.split("")[currentWord.split("").length - 1] // currentWord.split("").length - 1 - берем последний элемент
                 break
             }
-        } 
+        } // цикл для того чтобы вписать букву в первую пустую ячейку
         
         console.log(currentWord)
         if(currentWord.split("").length == 4)
@@ -190,18 +187,15 @@
                 txts.shift()
                 txts.shift()
                 txts.shift()
-                currentWord = ""
-                if(currentWord != hiddenWord && txts.length == 0)
+                currentWord = "" // чтобы мы могли писать новое слово
+                if(currentWord != hiddenWord && txts.length == 0) // если закончились пустые ячейки- ты проиграл
                 {
                     document.getElementById("loser").style.display = "block"
                     let wordTxt = document.getElementById("hiddenWord")
                     wordTxt.innerHTML = hiddenWord
                 }
             }
-            else
-            {
-                console.log("Такого слова нет")
-            }
+           
         }
         
     }
