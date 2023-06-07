@@ -1,0 +1,86 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(72, 49, 161);
+
+}
+#container{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    
+}
+.block{
+    background-color: black;
+    height: 55px;
+    width: 55px;
+    margin: 10px;
+    background-color: rgb(223, 213, 213);
+    border-color: black;
+    border-radius: 5px;
+  
+   
+   
+}
+#blocks{
+    display: grid;
+    width: 300px;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+   
+   
+}
+
+h3{
+    margin: 0;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    text-transform: uppercase;
+  
+
+}
+#winner{
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    right: 506px;
+    bottom: 300px;
+    border: 1px solid ;
+    border-radius: 5px;
+    background-color: rgb(36, 23, 88);
+    font-size: xx-large;
+    text-align: center;
+}
+#loser{
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    right: 506px;
+    bottom: 300px;
+    border: 1px solid ;
+    border-radius: 5px;
+    background-color: rgb(36, 23, 88);
+    font-size: xx-large;
+    text-align: center;
+}
+h2{
+    margin-top: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h4{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+}
+#rules{
+    background-color: rgb(36, 23, 88); 
+    padding: 70px 200px;
+    width: 350px; 
+    text-align: center;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    right: 400px;
+    bottom: 200px;
+    border-radius: 5px;
+}
